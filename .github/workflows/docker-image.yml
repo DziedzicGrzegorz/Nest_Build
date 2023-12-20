@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: '*'
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    # Uruchomienie kontenera na podstawie docker-compose-prod.yml po pushu
+    - name: Run Docker Prod
+      run: npm run docker:prod
+      working-directory: Nest_Build # Ustaw właściwą ścieżkę do projektu
+
