@@ -17,5 +17,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     # Uruchomienie kontenera na podstawie docker-compose-prod.yml po pushu
+    - name: Install dependencies
+      run: npm install
     - name: Run Docker Prod
       run: npm run docker:GithubAction
+     #Uruchomienie testów jednostkowych
+    - name: Unit Test
+      run: npm run test
+    # Uruchomienie testów e2e
+    - name: E2E Test
+      run: npm run test:e2e
