@@ -7,7 +7,7 @@ on:
     branches: [ "master","dev" ]
 
 env:
-  IMAGE_TAG: docker push dziedzicgrzegorz/nestjs:latest
+  IMAGE_TAG: dziedzicgrzegorz/nestjs:latest
 
 jobs:
 
