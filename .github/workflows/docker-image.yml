@@ -2,20 +2,34 @@ name: Docker Image CI
 
 on:
   push:
-    branches: ["master"]
+    branches: [ "master","dev" ]
   pull_request:
-    branches: ["master"]
+    branches: [ "master","dev" ]
+
+env:
+  IMAGE_TAG: docker push dziedzicgrzegorz/nestjs:latest
 
 jobs:
 
   build:
 
     runs-on: ubuntu-latest
-    container:
-      image: lucasalt/act_base:latest
 
     steps:
-    - uses: actions/checkout@v3
-    # Uruchomienie kontenera na podstawie docker-compose-prod.yml po pushu
-    - name: Run Docker Prod
-      run: npm run docker:GithubAction
+      - uses: actions/checkout@v3
+
+      - name: Build the Docker image
+        run: npm run docker:dev
+
+      - name: Run uni tests
+        run: docker run $IMAGE_TAG sh -c 'npm run test'
+
+      - name: Run e2e tests
+        run: docker run $IMAGE_TAG sh -c 'npm run test:e2e'
+
+      - name: Run ESLint
+        run: docker run $IMAGE_TAG sh -c 'npm run lint:check'
+
+      - name: Run Prettier
+        run: docker run $IMAGE_TAG sh -c 'npm run format:verify'
+

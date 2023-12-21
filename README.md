@@ -12,4 +12,4 @@ Before you begin, ensure you have installed the following:
 
 ## Committing Code
 
-When you want to commit, the `act` command is run in the `.git/hooks/pre-commit` hook to check if the Docker containers run correctly.
+When you want to commit, the `act` command is run in the `.git/hooks/pre-commit.sample` hook to check if the Docker containers run correctly.
