@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+//run act in console
+const { execSync } = require('child_process');
+
+try {
+  execSync('act', { stdio: 'inherit' });
+} catch (error) {
+  console.error('Error running act:', error);
+  process.exit(1);
+}

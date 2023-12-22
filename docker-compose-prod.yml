@@ -1,11 +1,10 @@
-
 version: "3"
 
 services:
   nestjs-api:
     build:
       context: .
-    image: nestjs_api
+    image: dziedzicgrzegorz/nestjs:latest
     ports:
       - "3000:3000"
     networks:
