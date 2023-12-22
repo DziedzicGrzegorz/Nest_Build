@@ -1,10 +1,11 @@
-# Project Name
+# My Goal
 
-This project uses Nest, an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+My objective is to set up an environment for running tests both locally and on GitHub Actions using Docker images.
+This is to automate the process and make it easier to maintain.
 
 ## Prerequisites
 
-Before you begin, ensure you have installed the following:
+Before you begin, ensure you have the following installed:
 
 - **Node.js**: We recommend using [`nvs`](https://github.com/jasongin/nvs) on Windows and [`nvm`](https://github.com/nvm-sh/nvm) on MacOS.
 - **act**: You can download it from the [official GitHub repository](https://github.com/nektos/act).
@@ -12,4 +13,5 @@ Before you begin, ensure you have installed the following:
 
 ## Committing Code
 
-When you want to commit, the `act` command is run in the `.git/hooks/pre-commit.sample` hook to check if the Docker containers run correctly.
+When committing, the `act` command is run in the `.git/hooks/pre-commit` hook to verify the Docker containers are running correctly.
+
